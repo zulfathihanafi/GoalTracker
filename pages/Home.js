@@ -10,6 +10,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import Backdrop from '@mui/material/Backdrop';
 import SpeedDial from '@mui/material/SpeedDial';
+import Fab from '@mui/material/Fab'
+import AddIcon from '@mui/icons-material/Add'
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
@@ -25,6 +27,14 @@ const Item = styled(Paper)(({ theme }) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
 }));
+const floatStyle = {
+    margin: 0,
+    top: 'auto',
+    right: '15vh',
+    bottom: '5vh',
+    left: 'auto',
+    position: 'fixed',
+};
 
 const actions = [
     { icon: <FileCopyIcon />, name: 'Copy' },
@@ -38,19 +48,19 @@ const Home = () => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const goals = [[20, "red"], [50, "yellow"], [90, 'green'],[20, "red"], [90, 'green']];
+    const goals = [[20, "red"], [50, "yellow"], [90, 'green'], [20, "red"], [90, 'green']];
     return (
         <div className={styles.container}>
             <Typography variant="h3" style={{ marginTop: "20px", marginBottom: "30px" }}>My Goals</Typography>
             <Grid container spacing={5}>
                 {goals.map((goal) => (
                     <Grid item xs={6} md={4}  >
-                        <Item sx={{boxShadow: 3}}>
+                        <Item sx={{ boxShadow: 3 }}>
                             <Typography variant="h5" justifyContent="flex-start" style={{ marginTop: '10px', marginBottom: '20px' }}>Goal 1</Typography>
-                            <Box sx={{ position: 'relative', display: 'inline-flex'}}>
-                            <CircularProgress style={{ 'position': 'absolute', 'color':'#fff'}} variant="determinate" size={100} thickness={7} value={100} />
+                            <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+                                <CircularProgress style={{ 'position': 'absolute', 'color': '#fff' }} variant="determinate" size={100} thickness={7} value={100} />
                                 <CircularProgress style={{ 'color': goal[1] }} variant="determinate" size={100} thickness={7} value={goal[0]} />
-                                
+
                                 <Box
                                     sx={{
                                         top: 0,
@@ -77,10 +87,13 @@ const Home = () => {
                         </Item>
                     </Grid>))}
             </Grid>
-            <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
+            <Fab style={floatStyle} color="primary" aria-label="add">
+                <AddIcon />
+            </Fab>
+            {/* <Box po sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
                 <SpeedDial
                     ariaLabel="SpeedDial controlled open example"
-                    sx={{ position: 'absolute', bottom: 16, right: 16 }}
+                    sx={{ position: 'absolute', right: 20, down: 50 }}
                     icon={<SpeedDialIcon />}
                     onClose={handleClose}
                     onOpen={handleOpen}
@@ -95,7 +108,7 @@ const Home = () => {
                         />
                     ))}
                 </SpeedDial>
-            </Box>
+            </Box> */}
         </div>
     )
 }
