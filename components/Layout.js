@@ -9,7 +9,9 @@ const Layout = ({ children }) => {
             <div className={styles.container}>
                 {children}
             </div>
-            <Sidebar />
+            <div>
+                <br></br>
+            </div>
         </div>
     );
 }

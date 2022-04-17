@@ -1,10 +1,12 @@
 .container {
   padding: 0 3rem;
+  min-height: 90vh;
+  
   /* background-color: rgb(169, 212, 250); */
 }
 
 .main {
-  min-height: 100vh;
+  
   padding: 4rem 0;
   flex: 1;
   display: flex;
@@ -108,10 +110,35 @@
   height: 1em;
   margin-left: 0.5rem;
 }
+.Fab{
+  margin: 0;
+  top: 'auto';
+  right: '15vh';
+  bottom: '5vh';
+  left: 'auto';
+  position: 'fixed';
+}
 
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
   }
+}
+/* Register  */
+.signupbox {
+  width: 360px;
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.para2 {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 15px;
+  padding-bottom:20px;
+}
+.para2 a {
+  color: #49c1a2;
 }

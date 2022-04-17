@@ -19,22 +19,32 @@ import SaveIcon from '@mui/icons-material/Save';
 import PrintIcon from '@mui/icons-material/Print';
 import ShareIcon from '@mui/icons-material/Share';
 import styles from '../styles/Home.module.css'
+import { lightTheme } from "../components/Theme";
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: '#d9d9d9',
-    ...theme.typography.body2,
+    
+    backgroundColor: lightTheme.goalBackground,
     padding: theme.spacing(1),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    color: lightTheme.goalText,
+    '&:hover' : {
+        'color' : 'white',
+        'background-color' : "#339989"
+    }
+    
 }));
-const floatStyle = {
+
+const Fabutton = styled(Fab)(() => ({
     margin: 0,
     top: 'auto',
     right: '15vh',
     bottom: '5vh',
     left: 'auto',
     position: 'fixed',
-};
+    '&:hover' : {
+        'background-color' : 'red '
+    }
+}))
 
 const actions = [
     { icon: <FileCopyIcon />, name: 'Copy' },
@@ -49,9 +59,13 @@ const Home = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const goals = [[20, "red"], [50, "yellow"], [90, 'green'], [20, "red"], [90, 'green']];
+    const buttonHover = {
+        
+    }
+
     return (
         <div className={styles.container}>
-            <Typography variant="h3" style={{ marginTop: "20px", marginBottom: "30px" }}>My Goals</Typography>
+            <Typography variant="h3" style={{ marginTop: "20px", marginBottom: "30px" ,color:'#FFFFFF' }}>My Goals</Typography>
             <Grid container spacing={5}>
                 {goals.map((goal) => (
                     <Grid item xs={6} md={4}  >
@@ -73,7 +87,7 @@ const Home = () => {
                                         justifyContent: 'center',
                                     }}
                                 >
-                                    <Typography variant="h6" component="div" color="text.secondary">
+                                    <Typography variant="h6" component="div" color="#D9D9D9">
                                         {`${Math.round(goal[0])}%`}
                                     </Typography>
                                 </Box>
@@ -87,9 +101,9 @@ const Home = () => {
                         </Item>
                     </Grid>))}
             </Grid>
-            <Fab style={floatStyle} color="primary" aria-label="add">
+            <Fabutton sx={{ transform: 'translateZ(0px)'}} color="primary" aria-label="add" title="Add Goal">
                 <AddIcon />
-            </Fab>
+            </Fabutton>
             {/* <Box po sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
                 <SpeedDial
                     ariaLabel="SpeedDial controlled open example"
