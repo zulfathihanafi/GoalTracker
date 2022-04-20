@@ -17,7 +17,7 @@ import { useRouter } from 'next/router'
 import { lightTheme } from './Theme';
 
 
-const pages = ['Home', 'login','register', 'About',"Profile"];
+const pages = ['Home', 'login','register', 'About',"Profile",'nonhabitual'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
@@ -70,7 +70,7 @@ const Navbar = () => {
  {/* tgk balik kat sini */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link href={"/" + page} ><a>
+              <Link href={"/" + page} >
                 <NavButton
                   key={page}
                   onClick={handleCloseNavMenu}
@@ -79,7 +79,7 @@ const Navbar = () => {
                   size="large"
                 >
                   {page}
-                </NavButton></a></Link>
+                </NavButton></Link>
             ))}
           </Box>
      {/* tgk balik kat sini */}     
